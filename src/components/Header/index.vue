@@ -38,7 +38,11 @@
             class="input-error input-xxlarge"
             v-model="keyword"
           />
-          <button class="sui-btn btn-xlarge btn-danger" type="button" @click="goSearch">
+          <button
+            class="sui-btn btn-xlarge btn-danger"
+            type="button"
+            @click="goSearch"
+          >
             搜索
           </button>
         </form>
@@ -50,20 +54,25 @@
 <script>
 export default {
   name: "",
-  data(){
-    return{
-      keyword:''
-    }
+  data() {
+    return {
+      keyword: "",
+    };
   },
-  methods:{
+  methods: {
     //搜索按钮的回调函数：需要向search路由进行跳转
-    goSearch(){
+    goSearch() {
       //路由传递参数：
-      // this.$router.push(`/search/${this.keyword}?key=${this.keyword.toUpperCase()}`)
-      this.$router.push({name:"search",params:{keyword:this.keyword},query:{key:this.keyword.toUpperCase()}})
-      // this.$router.push({name:"search",query:{key:this.keyword.toUpperCase()}})
-    }
-  }
+      if (this.$route.query) {
+        let location = {
+          name: "search",
+          params: { keyword: this.keyword || undefined },
+        };
+        location.query = this.$route.query;
+        this.$router.push(location);
+      }
+    },
+  },
 };
 </script>
 

@@ -4,10 +4,10 @@ import VueRouter from "vue-router";
 // 使用插件
 Vue.use(VueRouter);
 //引入路由组件
-import Home from "@/pages/Home";
-import Search from "@/pages/Search";
-import Login from "@/pages/Login";
-import Register from "@/pages/Register";
+import Home from "@/views/Home";
+import Search from "@/views/Search";
+import Login from "@/views/Login";
+import Register from "@/views/Register";
 
 //先把VueRouter 原型对象的 push,先保存一份
 let originPush = VueRouter.prototype.push;
