@@ -9,3 +9,7 @@ export const reqGetBannerList = () =>
 
 export const reqFloorList = () =>
   mockRequests({ url: "/floor", method: "get" });
+
+// 搜索模块
+export const reqGetSearchInfo = (params) =>
+  requests({ url: "/list", method: "post", data: params });
